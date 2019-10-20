@@ -1,0 +1,73 @@
+/*Credit for the heart icon goes to Kevin Powell: https://www.youtube.com/watch?v=YYlFFMc0RAg&t=1s */
+
+.likebar {
+    display: flex;
+}
+
+.heart {
+    --size: 0.75em;
+    width: var(--size);
+    height: var(--size);
+    margin-top: 5px;
+    position: relative;
+    padding-left: 1em;
+    margin-bottom: .75em;
+    transition: transform 300ms cubic-bezier(.38,.5,.5,1.5);
+  }
+  
+  .heart__checkbox {
+    transform: rotate(45deg);
+    position: absolute;
+    appearance: none;
+    width: 150%;
+    height: 150%;
+    top: -50%;
+    left: 45%;
+    border-radius: 50% 0 0 0;
+    // background: rgba(green, .5);
+    z-index: 100;
+    cursor: pointer;
+  
+  }
+  
+  .heart:hover {
+    transform: scale(1.2);
+  }
+  
+  .heart__checkbox:focus {
+    outline: none;
+  }
+  
+  .heart__icon {
+    transform: rotate(45deg);
+    width: var(--size);
+    height: var(--size);
+    background: pink;
+    position: absolute;
+    transition: background 125ms;
+  }
+  
+  .heart__icon::before,
+  .heart__icon::after {
+    content: '';
+    display: block;
+    background: inherit;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  .heart__icon::before {
+    top: 0;
+    left: -50%;
+  }
+  
+  .heart__icon::after {
+    left: 0;
+    top: -50%;
+  }
+  
+  .heart__checkbox:checked ~ .heart__icon {
+    background: red;
+  }
